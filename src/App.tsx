@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import MapViewer from './Components/Organisms/MapViewer.tsx'
 import styled from 'styled-components'
 import Panel from './Components/Molecules/Panel.tsx'
+import { TimeContextProvider } from './Services/Contexts/TimeContext.tsx'
 
 const queryClient = new QueryClient()
 
@@ -17,9 +18,9 @@ const Container = styled.div`
 `
 
 function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
+    <TimeContextProvider>
       <Container>
         <Header/>
         <Grid gridTemplateColumns={'150px 2fr'} backgroundColor={'#ccc'}>
@@ -30,6 +31,7 @@ function App() {
           </GridItem>
         </Grid>
       </Container>
+    </TimeContextProvider>
     </QueryClientProvider>
   )
 }
