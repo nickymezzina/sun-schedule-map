@@ -4,6 +4,12 @@ import { SunSchedule } from '../../Types/SunSchedule.ts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
+/**
+ * Renders a component that displays the previously targeted location history.
+ *
+ * @return `{JSX.Element}` `The rendered LocationHistory component.
+ */
+
 const Container = styled.div`
   height: 100%;
   width: 100%;

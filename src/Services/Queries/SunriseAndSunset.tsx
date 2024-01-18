@@ -4,6 +4,17 @@ import { Coordinates } from '../../Types/Coordinates.ts'
 import { useEffect } from 'react'
 import { useMapStore } from '../Stores/MapStore.tsx'
 
+/**
+ * Hook for querying the sun schedule data on a given set of coordinates.
+ *
+ * On success it updates
+ *
+ * @returns `{UseQueryResult}`
+ *
+ * source: https://api.sunrise-sunset.org/json
+ */
+
+
 interface SunriseAndSunsetQueryParams {
   targetCoordinates?: Coordinates
 }

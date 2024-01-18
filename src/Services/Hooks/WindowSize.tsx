@@ -3,7 +3,7 @@ import { Dimensions } from '../../Types/Dimensions.ts'
 
 /** Custom hook: useWindowSize
  * useWindowSize listens for resize events on the window and returns the current width and height of the window
- * @returns {Dimensions} - The current width and height of the window
+ * @returns `{Dimensions}` - The current width and height of the window
  * @example
  * const { windowSize } = useWindowSize()
  *

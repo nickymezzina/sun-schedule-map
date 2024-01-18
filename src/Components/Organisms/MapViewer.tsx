@@ -13,7 +13,7 @@ import LoadingSpinner from '../Atoms/LoadingSpinner.tsx'
 
 /**
  * The main map component and implementation of Mapbox GL using the react-mapbox-gl wrapper (to keep the look and structure of React Functional Components)
- *
+ * @return `{JSX.Element}` The map viewer component.
  */
 
 const Container = styled.div`

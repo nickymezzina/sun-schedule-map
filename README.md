@@ -8,3 +8,9 @@ which will provide this information.
 A bonus feature would be showing in the popup the location's country/flag (where possible).
 
 Map view can be implemented in any preferred way
+
+## Testing
+To test the dev build:
+
+> yarn i
+> yarn dev
