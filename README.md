@@ -12,4 +12,5 @@ Map view can be implemented in any preferred way
 ## Testing
 To test the dev build:
 
-> yarn i && yarn dev
+> yarn install
+> yarn dev
