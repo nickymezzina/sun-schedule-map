@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import Map, { MapMouseEvent, Marker, Popup, Layer, Source, NavigationControl, MapRef } from 'react-map-gl'
 import { useSunriseAndSunsetQuery } from '../../Services/Queries/SunriseAndSunset.tsx'
 import { useMapStore } from '../../Services/Stores/MapStore.tsx'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useZoomEffect } from '../../Services/Hooks/ZoomEffect.tsx'
+import { useEffect, useRef, useState } from 'react'
 import SunPopup from '../Molecules/SunPopup.tsx'
 import { MapLocation } from '../../Types/MapLocation.ts'
 import { useGeoCountriesQuery } from '../../Services/Queries/GeoCountries.tsx'
@@ -74,7 +73,6 @@ const MapViewer = () => {
   const {data: sunData, isSuccess} = useSunriseAndSunsetQuery({targetCoordinates: lastTargetLocation})
   const {data: countriesData, isLoading: isCountriesLoading} = useGeoCountriesQuery()
 
-  const currentZoomLevel = useZoomEffect()
   const handleClickMap = (event: MapMouseEvent) => {
     if (!mapRef.current) return
 
@@ -82,13 +80,11 @@ const MapViewer = () => {
 
     const features = map.queryRenderedFeatures(event.point)
 
-    if (!features || features.length === 0 || !features[0]) return
-
-    const properties = features[0] as any
+    if (!features[0]) return
 
     const country = {
-      name: properties.ADMIN,
-      code: properties.ISO_A3,
+      name: features[0].properties?.ADMIN,
+      code: features[0].properties?.ISO_A3,
     }
 
     const [lat, lng] = [event.lngLat.lat, event.lngLat.lng]
@@ -100,16 +96,8 @@ const MapViewer = () => {
       lng,
       country: country,
     })
-
     setDoSpin(true)
   }
-
-  useLayoutEffect(() => {
-    if (mapRef.current) {
-      const map = mapRef.current.getMap()
-      map.resize()
-    }
-  }, [currentZoomLevel])
 
   useEffect(() => {
     if (sunSchedules.length > 0) {
