@@ -23,14 +23,14 @@ const OpenCloseGraphicsContainer = styled.div`
 `
 
 interface OpenCloseProps {
-  isSelected?: boolean
+  $isSelected?: boolean
 }
 
 const Open = styled.div<OpenCloseProps>`
   height: 10px;
   line-height: 10px;
-  font-size: ${props => props.isSelected ? '10px' : '8px'};
-  color: ${props => props.isSelected ? '#000' : '#00000080'};
+  font-size: ${props => props.$isSelected ? '10px' : '8px'};
+  color: ${props => props.$isSelected ? '#000' : '#00000080'};
   margin: 0 0 0 2px;
   user-select: none;
   
@@ -39,8 +39,8 @@ const Open = styled.div<OpenCloseProps>`
 const Close = styled.div<OpenCloseProps>`
   height: 10px;
   line-height: 10px;
-  font-size: ${props => props.isSelected ? '10px' : '8px'};
-  color: ${props => props.isSelected ? '#000' : '#00000080'};
+  font-size: ${props => props.$isSelected ? '10px' : '8px'};
+  color: ${props => props.$isSelected ? '#000' : '#00000080'};
   margin: 0 2px 0 0;
   user-select: none;
 `
@@ -57,10 +57,10 @@ const OpenCloseGraphics = ({isOpen, setFn, options}: OpenCloseGraphicsProps) => 
 
   return (
     <OpenCloseGraphicsContainer>
-      <Close isSelected={!isOpen} onClick={() => setFn(0)}>
+      <Close $isSelected={!isOpen} onClick={() => setFn(0)}>
         {labels[0]}
       </Close>
-      <Open isSelected={isOpen} onClick={() => setFn(1)}>
+      <Open $isSelected={isOpen} onClick={() => setFn(1)}>
         {labels[1]}
       </Open>
     </OpenCloseGraphicsContainer>
@@ -77,7 +77,7 @@ const HorizontalTrack = styled.div`
 `
 
 interface TrackThumbProps {
-  marginLeft: number
+  $marginLeft: number
 }
 
 const TrackThumb = styled.div<TrackThumbProps>`
@@ -86,7 +86,7 @@ const TrackThumb = styled.div<TrackThumbProps>`
   width: 7px;
   height: 7px;
   background: #BE0000;
-  margin-left: ${props => props.marginLeft}px;
+  margin-left: ${props => props.$marginLeft}px;
   transition: margin-left 0.5s;
 `
 
@@ -116,7 +116,7 @@ const MultiToggle = ({ position, setFn, toggleFn, options }: MultiToggleProps) =
     <Container onClick={handleTrackClick}>
       <OpenCloseGraphics isOpen={position === 1} setFn={setFn} options={options}/>
       <HorizontalTrack onClick={handleTrackClick}>
-        <TrackThumb marginLeft={thumbMarginLeft}/>
+        <TrackThumb $marginLeft={thumbMarginLeft}/>
       </HorizontalTrack>
     </Container>
   )

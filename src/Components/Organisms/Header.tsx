@@ -62,7 +62,6 @@ const Header = () => {
             position={displayTargetTime ? 1 : 0}
             toggleFn={toggleFn}
             setFn={setFn}
-            label={'Time'}
             options={['Local', 'Target']}
           />
         </ToggleContainer>
