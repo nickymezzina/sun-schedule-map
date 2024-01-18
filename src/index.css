@@ -1,0 +1,19 @@
+html, body, #app, #app > div {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#app {
+}
+
+html, body {
+  font-family: Exo,sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
