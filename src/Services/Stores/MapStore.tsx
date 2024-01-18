@@ -6,7 +6,7 @@ import { MapLocation } from '../../Types/MapLocation.ts'
 
 /** Zustand state management hook: useMapStore
  * useMapStore is a custom hook that provides state management for the map component
- * @returns {MapStore} - The current state and actions for the map component
+ * @returns `{MapStore}` - The current state and actions for the map component
  * @example
  * const { targetLocations, addTargetLocation, setHideOnMap, reset } = useMapStore()
  *  //or...
